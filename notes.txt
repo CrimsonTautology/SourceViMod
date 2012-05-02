@@ -1,0 +1,45 @@
+"Add this to your vimrc for tagbar support
+"Make sure exuberant ctags is in your path
+
+let g:tagbar_type_sourcepawn = {
+	\ 'ctagstype' : 'c++',
+	\ 'kinds'     : [
+		\ 'd:macros:1',
+		\ 'p:prototypes:1',
+		\ 'g:enums',
+		\ 'e:enumerators',
+		\ 't:typedefs',
+		\ 'n:namespaces',
+		\ 'c:classes',
+		\ 's:structs',
+		\ 'u:unions',
+		\ 'f:functions',
+		\ 'm:members',
+		\ 'v:variables'
+	\ ],
+	\ 'sro'        : '::',
+	\ 'kind2scope' : {
+		\ 'g' : 'enum',
+		\ 'n' : 'namespace',
+		\ 'c' : 'class',
+		\ 's' : 'struct',
+		\ 'u' : 'union'
+	\ },
+	\ 'scope2kind' : {
+		\ 'enum'      : 'g',
+		\ 'namespace' : 'n',
+		\ 'class'     : 'c',
+		\ 'struct'    : 's',
+		\ 'union'     : 'u'
+	\ }
+\ }
+
+
+"Add this to your .vimrc to get the compiler and syntax working
+autocmd BufNewFile,BufRead *.sp,*.inc set filetype=sourcepawn
+compiler spcomp
+
+"Bind some key to :make to compile the file
+map <silent> <F5> :w<cr>:make<cr>
+
+"I also recomend writing a script to move your compiled file over to your dev server if you don't work on it
