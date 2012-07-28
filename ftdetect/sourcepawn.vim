@@ -1,4 +1,4 @@
 
 " SourcePawn
-au BufNewFile,BufRead *.sp,*.inc		setf sourcepawn
+au BufNewFile,BufRead *.sp,*.inc		set filetype=sourcepawn
 
